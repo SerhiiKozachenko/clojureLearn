@@ -1,11 +1,32 @@
 (ns test.core
-  (:gen-class))
+  (:gen-class)
+
+  (:require [test.util.log :as log])
+)
+
+;; call fn from imported file
+(log/debug "sd")
+
+(use 'clojure.repl)
+(str (doc log/debug))
+
+
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!"))
 
+
+(defn is-true [param]
+  (if true (str "it's true"))
+  (str "it's false"))
+
+(is-true true)
+
+
+(def a #{1 2 3})
+a
 
 ;; press ctrl+enter to evaluate inline func and result
 
@@ -141,7 +162,7 @@ my-list
 ;; get item by index
 (my-vec 2)
 
-([0 0 0 0 0 2] 2)
+([0 0 0 0 0 2] 6)
 
 
 ;; sets
@@ -150,6 +171,7 @@ my-list
 
 ;; uniq
 (conj my-set 3)
+
 
 
 
